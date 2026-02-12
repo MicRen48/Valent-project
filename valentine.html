@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Flower DIY 🌹</title>
+    <style>
+        :root {
+            --pink-light: #ffebf0;
+            --pink-main: #ff4d6d;
+            --pink-dark: #c9184a;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--pink-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .music-player {
+            margin-bottom: 20px;
+            background: #fff0f3;
+            padding: 12px;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .music-btn {
+            background: var(--pink-main);
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+
+        .volume-slider {
+            width: 100px;
+            accent-color: var(--pink-main);
+            cursor: pointer;
+        }
+
+        h1 { color: var(--pink-dark); margin-bottom: 10px; font-size: 1.5rem; }
+        p { color: #666; font-size: 0.9rem; }
+        
+        .valent-img {
+            width: 300px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+        }
+        
+
+        #result-page { display: none; }
+
+    </style>
+</head>
+<body>
+
+    <audio id="myAudio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="setup-page" class="container">
+        
+
+        <h1>🍫 For You My Valentine 💖</h1>
+        
+        <div class="flower-options">
+            <img src="https://img2.pic.in.th/Valentine.jpg" class="valent-img" >
+        </div>
+        <div class="music-player">
+            <span style="font-size: 0.8rem; color: var(--pink-dark); font-weight: bold;">🎵 เพลงนับหนึ่ง</span>
+            <div class="controls-row">
+                <button class="music-btn" onclick="playAudio()">▶️ Play</button>
+                <button class="music-btn" onclick="pauseAudio()" style="background:#bbb;">⏸️ Pause</button>
+                <input type="range" class="volume-slider" id="volumeControl" min="0" max="1" step="0.1" value="0.4" oninput="changeVolume(this.value)">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="result-page" class="container">
+        
+        <div class="final-bouquet-wrapper">
+            <div id="gathered-flowers-container"></div>
+        </div>
+        <button onclick="location.reload()" style="background:#666; color:white; border:none; padding:10px 20px; border-radius:20px; cursor:pointer;">จัดใหม่อีกรอบ</button>
+    </div>
+
+    <script>
+        var x = document.getElementById("myAudio"); 
+        x.volume = 0.4;
+
+        function playAudio() { x.play(); } 
+        function pauseAudio() { x.pause(); }
+        function changeVolume(val) { x.volume = val; }
+
+        
+    </script>
+</body>
+</html>
